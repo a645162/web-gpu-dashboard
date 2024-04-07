@@ -1,0 +1,56 @@
+<script setup lang="ts">
+
+import {createGpuTaskInfoItem, GpuTaskInfoItemType} from "../ts/GpuTaskInfoItemType.ts";
+import GpuUsageCard from "../components/machine/gpu_info/GpuUsageCard.vue";
+import GpuTasksList from "../components/machine/gpu_info/GpuTasksList.vue";
+
+const taskInfoList: GpuTaskInfoItemType[] = [
+  createGpuTaskInfoItem(
+      0,
+      '张三',
+      true,
+      '项目A',
+      'main.py',
+      '00:00:10',
+      1711461763804,
+      '1024MB'
+  ),
+  createGpuTaskInfoItem(
+      1,
+      '孔昊旻',
+      false,
+      '原神启动',
+      'train.py',
+      '01:00:10',
+      1711461763804,
+      '12GiB'
+  ),
+];
+
+</script>
+
+<template>
+
+  <GpuUsageCard
+      gpu-index="0"
+      gpu-name="RTX 3090"
+      core-usage="20"
+      memory-usage="40"
+      gpu-memory-usage="10GiB"
+      gpu-memory-total-m-b="24GiB"
+
+      gpu-power-usage="250W"
+      gpu-t-d-p="350W"
+      gpu-temperature="50"
+  />
+
+  <GpuTasksList
+      :gpu_task_info_items="taskInfoList"
+      gpu_name="RTX 3090"
+  />
+
+</template>
+
+<style scoped>
+
+</style>

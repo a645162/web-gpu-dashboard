@@ -1,0 +1,9 @@
+{
+  "machineList": [
+    {
+      "machineName": "Test Server(Local)",
+      "machineUrl": "http://localhost:8082/",
+      "urlKeywords": "/test_local"
+    }
+  ]
+}
