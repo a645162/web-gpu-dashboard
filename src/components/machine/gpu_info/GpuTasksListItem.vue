@@ -35,20 +35,32 @@ export default defineComponent({
       e.preventDefault();
 
       const copyProjectName = () => {
-        const projectName = this.item.projectName;
-        copyToClipboard(projectName);
+        const projectName = this.item.mainName;
 
-        ElNotification(
-            {
-              title: "复制",
-              message: `已复制项目名称: "${projectName}".`,
-              type: 'success',
-            }
-        )
+        copyToClipboard(projectName)
+            .then(() => {
+              ElNotification(
+                  {
+                    title: "复制",
+                    message: `已复制项目名称: "${projectName}".`,
+                    type: 'success',
+                  }
+              );
+            })
+            .catch(err => {
+              ElNotification(
+                  {
+                    title: "复制失败",
+                    message: `复制项目名称失败: "${projectName}".\n失败原因:${err}`,
+                    type: 'error',
+                  }
+              );
+            });
+
       };
 
       const setFilterProject = () => {
-        this.projectFilterSettingBox(this.item.projectName);
+        this.projectFilterSettingBox(this.item.mainName);
       };
 
       const cancelAllFilter = this.cancelAllFilter;
@@ -260,7 +272,7 @@ export default defineComponent({
 
   <el-card
       class="item-card"
-      v-show="testFilterUserNameForTaskItem(item.name) && testFilterProjectNameForTaskItem(item.projectName)"
+      v-show="testFilterUserNameForTaskItem(item.name) && testFilterProjectNameForTaskItem(item.mainName)"
       @contextmenu.prevent="onContextMenu"
   >
 
@@ -333,12 +345,16 @@ export default defineComponent({
                 :value="item.worldSize > 1 ? `${item.worldSize}卡` : ''"
                 style="padding-left: 5px;padding-right: 5px;"
                 type="warning"
-                @click="projectFilterSettingBox(item.projectName)"
+                @click="projectFilterSettingBox(item.mainName)"
             >
               <el-tooltip
                   placement="top"
               >
                 <template #content>
+
+                  <div v-show="item.screenSessionName">
+                    Screen会话名称:{{ item.screenSessionName }}
+                  </div>
 
                   <div v-show="item.projectName">
                     项目名称:{{ item.projectName }}
@@ -376,7 +392,7 @@ export default defineComponent({
 
                 </template>
 
-                {{ item.projectName }}
+                {{ item.mainName }}
 
               </el-tooltip>
             </el-badge>

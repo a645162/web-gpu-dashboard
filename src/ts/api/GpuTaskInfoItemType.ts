@@ -16,6 +16,9 @@ export interface GpuTaskInfoItemType {
     worldSize: number;
     localRank: number;
     condaEnv: string;
+    screenSessionName: string;
+
+    mainName: string;
 
     command: string;
 
@@ -35,6 +38,8 @@ export function createGpuTaskInfoItem(
     worldSize: number,
     localRank: number,
     condaEnv: string,
+    screenSessionName: string,
+    mainName: string,
     command: string,
     taskMainMemoryMB: number,
 ): GpuTaskInfoItemType {
@@ -55,9 +60,30 @@ export function createGpuTaskInfoItem(
         worldSize,
         localRank,
         condaEnv,
+        screenSessionName,
+
+        mainName,
 
         command,
 
         taskMainMemoryMB,
     };
+}
+
+export function updateTaskMainName(gpuTaskInfoItemType: GpuTaskInfoItemType): string {
+    if (gpuTaskInfoItemType.screenSessionName === undefined) {
+        gpuTaskInfoItemType.mainName = gpuTaskInfoItemType.projectName;
+    } else if (gpuTaskInfoItemType.screenSessionName.trim().length === 0) {
+        gpuTaskInfoItemType.mainName = gpuTaskInfoItemType.projectName;
+    } else {
+        gpuTaskInfoItemType.mainName = gpuTaskInfoItemType.screenSessionName.trim();
+    }
+
+    return gpuTaskInfoItemType.mainName;
+}
+
+export function updateAllTaskInfo(gpuTaskInfoList: GpuTaskInfoItemType[]): void {
+    for (const gpuTaskInfo of gpuTaskInfoList) {
+        updateTaskMainName(gpuTaskInfo);
+    }
 }

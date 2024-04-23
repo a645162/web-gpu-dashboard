@@ -61,7 +61,7 @@ import {defineComponent, onMounted, onUnmounted, ref, computed, watch} from 'vue
 import axios from 'axios';
 
 import GpuUsageCard from "./GpuUsageCard.vue";
-import {GpuTaskInfoItemType} from "../../../ts/api/GpuTaskInfoItemType.ts";
+import {GpuTaskInfoItemType, updateAllTaskInfo} from "../../../ts/api/GpuTaskInfoItemType.ts";
 import {GPUUsage} from "../../../ts/api/TypeGpuUsage.ts";
 import GpuTasksList from "./GpuTasksList.vue";
 import {useStoreSettings} from "../../../stores/storeSettings.ts";
@@ -119,6 +119,10 @@ export default defineComponent({
             await axios.get(
                 `${props.url}/get_gpu_task?gpu_index=${props.gpuIndex}`
             );
+
+        // 预处理获取到的信息
+        updateAllTaskInfo(response.data.taskList);
+
         gpuTaskInfoItems.value = response.data.taskList;
       } catch (error) {
         // console.error('Error fetching GPU tasks:', error);
@@ -177,7 +181,7 @@ export default defineComponent({
 
           for (let i = 0; i < gpuTaskInfoItems.value.length; i++) {
             const gpuTaskInfoItem = gpuTaskInfoItems.value[i];
-            if (gpuTaskInfoItem.projectName.includes(filterProjectName.value)) {
+            if (gpuTaskInfoItem.mainName.includes(filterProjectName.value)) {
               includeProject = true;
               break;
             }
