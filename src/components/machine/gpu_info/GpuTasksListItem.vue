@@ -159,14 +159,14 @@ export default defineComponent({
       )
     }
 
-    const testFilterProjectNameForTaskItem = (projectName: string) => {
-      if (projectName === "") {
+    const testFilterProjectNameForTaskItem = (mainName: string) => {
+      if (mainName === "") {
         return false;
       }
       if (storeSettings.filterProjectName === "") {
         return true;
       }
-      return projectName.includes(storeSettings.filterProjectName);
+      return mainName.includes(storeSettings.filterProjectName);
     }
 
     const filterProjectNameConfirmEvent = (projectName: string) => {
@@ -397,7 +397,6 @@ export default defineComponent({
               </el-tooltip>
             </el-badge>
           </div>
-          <!--                  </el-popconfirm>-->
 
         </div>
 
