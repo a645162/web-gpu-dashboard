@@ -71,7 +71,10 @@ export function createGpuTaskInfoItem(
 }
 
 export function updateTaskMainName(gpuTaskInfoItemType: GpuTaskInfoItemType): string {
-    if (gpuTaskInfoItemType.screenSessionName === undefined) {
+    if (
+        gpuTaskInfoItemType.screenSessionName === undefined ||
+        gpuTaskInfoItemType.screenSessionName === null
+    ) {
         gpuTaskInfoItemType.mainName = gpuTaskInfoItemType.projectName;
     } else if (gpuTaskInfoItemType.screenSessionName.trim().length === 0) {
         gpuTaskInfoItemType.mainName = gpuTaskInfoItemType.projectName;
