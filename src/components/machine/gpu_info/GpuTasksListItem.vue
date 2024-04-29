@@ -8,7 +8,7 @@ import {ElCard, ElMessage, ElMessageBox, ElNotification} from "element-plus";
 import {GpuTaskInfoItemType} from "../../../ts/api/GpuTaskInfoItemType.ts";
 import {getTimeStrFromTimestamp} from "../../../ts/type/DateTimeUtils.ts";
 import {useStoreSettings} from "../../../stores/storeSettings.ts";
-import {copyToClipboard} from "../../../ts/utils/Clipboard.ts";
+import {copyToClipboardOld} from "../../../ts/utils/Clipboard.ts";
 
 export default defineComponent({
   name: 'GpuTasksListItem',
@@ -37,25 +37,27 @@ export default defineComponent({
       const copyProjectName = () => {
         const projectName = this.item.mainName;
 
-        copyToClipboard(projectName)
-            .then(() => {
-              ElNotification(
-                  {
-                    title: "复制",
-                    message: `已复制项目名称: "${projectName}".`,
-                    type: 'success',
-                  }
-              );
-            })
-            .catch(err => {
-              ElNotification(
-                  {
-                    title: "复制失败",
-                    message: `复制项目名称失败: "${projectName}".\n失败原因:${err}`,
-                    type: 'error',
-                  }
-              );
-            });
+        copyToClipboardOld(projectName)
+
+        // copyToClipboard(projectName)
+        //     .then(() => {
+        //       ElNotification(
+        //           {
+        //             title: "复制",
+        //             message: `已复制项目名称: "${projectName}".`,
+        //             type: 'success',
+        //           }
+        //       );
+        //     })
+        //     .catch(err => {
+        //       ElNotification(
+        //           {
+        //             title: "复制失败",
+        //             message: `复制项目名称失败: "${projectName}".\n失败原因:${err}`,
+        //             type: 'error',
+        //           }
+        //       );
+        //     });
 
       };
 
@@ -384,7 +386,7 @@ export default defineComponent({
                   <div v-if="item.worldSize > 1">
                     GPU使用数量:{{ item.worldSize }}
                     <br/>
-                    当前任务索引:{{ item.localRank }}
+                    多卡任务索引:{{ item.localRank }}
                   </div>
 
                   <el-divider style="padding: 0;margin: 0;"/>
