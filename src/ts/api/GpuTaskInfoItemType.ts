@@ -18,6 +18,8 @@ export interface GpuTaskInfoItemType {
     condaEnv: string;
     screenSessionName: string;
 
+    pythonVersion: string;
+
     mainName: string;
 
     command: string;
@@ -39,6 +41,7 @@ export function createGpuTaskInfoItem(
     localRank: number,
     condaEnv: string,
     screenSessionName: string,
+    pythonVersion: string,
     mainName: string,
     command: string,
     taskMainMemoryMB: number,
@@ -61,6 +64,8 @@ export function createGpuTaskInfoItem(
         localRank,
         condaEnv,
         screenSessionName,
+
+        pythonVersion,
 
         mainName,
 

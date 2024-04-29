@@ -367,6 +367,9 @@ export default defineComponent({
                   <div v-show="item.condaEnv">
                     Conda环境:{{ item.condaEnv }}
                   </div>
+                  <div v-show="item.pythonVersion">
+                    Python Version:{{ item.pythonVersion }}
+                  </div>
 
                   <el-divider style="padding: 0;margin: 0;"/>
 
