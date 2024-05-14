@@ -38,6 +38,14 @@
         />
       </div>
 
+      <!--GPU推荐剩余显存-->
+      <div class="gpu-recommend-memory">
+        <GpuRecommendMemoryCard
+            :total_gpu_memory_mb="gpuUsageData.gpuMemoryTotalMB.valueOf()"
+            :gpu_task_info_items="gpuTaskInfoItems"
+        />
+      </div>
+
       <!--GPU任务-->
       <div
           class="gpu-component-task"
@@ -65,10 +73,11 @@ import {GpuTaskInfoItemType, updateAllTaskInfo} from "../../../ts/api/GpuTaskInf
 import {GPUUsage} from "../../../ts/api/TypeGpuUsage.ts";
 import GpuTasksList from "./GpuTasksList.vue";
 import {useStoreSettings} from "../../../stores/storeSettings.ts";
+import GpuRecommendMemoryCard from "./GpuRecommendMemoryCard.vue";
 
 export default defineComponent({
   name: 'GpuComponent',
-  components: {GpuTasksList, GpuUsageCard},
+  components: {GpuRecommendMemoryCard, GpuTasksList, GpuUsageCard},
   props: {
     url: {
       type: String,
