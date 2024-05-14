@@ -385,7 +385,7 @@ export default defineComponent({
                     GPU显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsage)) }}GiB
                   </div>
                   <div v-if="item.gpuMemoryUsageMax">
-                    GPU显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsageMax)) }}GiB
+                    最大显存占用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsageMax)) }}GiB
                   </div>
 
                   <div v-if="item.worldSize > 1">
