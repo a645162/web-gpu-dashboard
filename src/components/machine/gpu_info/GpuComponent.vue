@@ -41,6 +41,7 @@
       <!--GPU推荐剩余显存-->
       <div class="gpu-recommend-memory">
         <GpuRecommendMemoryCard
+            :current_gpu_memory_used_percent="gpuUsageData.memoryUsage.valueOf()"
             :total_gpu_memory_mb="gpuUsageData.gpuMemoryTotalMB.valueOf()"
             :gpu_task_info_items="gpuTaskInfoItems"
         />

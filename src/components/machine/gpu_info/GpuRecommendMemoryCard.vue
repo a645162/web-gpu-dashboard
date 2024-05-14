@@ -8,6 +8,11 @@ export default defineComponent({
   name: 'GpuRecommendMemoryCard',
   components: {GpuTasksListItem},
   props: {
+    current_gpu_memory_used_percent: {
+      type: Number,
+      required: false,
+      default: -1,
+    },
     total_gpu_memory_mb: {
       type: Number,
       required: true,
@@ -31,8 +36,22 @@ export default defineComponent({
       return usage_memory_mb;
     });
 
+    const current_used_memory_mb = computed(() => {
+      if (props.current_gpu_memory_used_percent < 0) {
+        return 0;
+      }
+
+      return props.total_gpu_memory_mb * (props.current_gpu_memory_used_percent / 100);
+    })
+
     const remain_memory_mb = computed(() => {
-      return props.total_gpu_memory_mb - usage_memory_mb.value;
+      const remain_memory = props.total_gpu_memory_mb - usage_memory_mb.value;
+
+      if (remain_memory < current_used_memory_mb.value) {
+        return 0;
+      }
+
+      return remain_memory;
     });
 
     const remain_memory_human = computed(() => {
