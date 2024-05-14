@@ -12,6 +12,7 @@ export interface GpuTaskInfoItemType {
     startTimestamp: number;
 
     gpuMemoryUsage: number;
+    gpuMemoryUsageMax: number;
 
     worldSize: number;
     localRank: number;
@@ -37,6 +38,7 @@ export function createGpuTaskInfoItem(
     runTime: string,
     startTimestamp: number,
     gpuMemoryUsage: number,
+    gpuMemoryUsageMax: number,
     worldSize: number,
     localRank: number,
     condaEnv: string,
@@ -59,6 +61,7 @@ export function createGpuTaskInfoItem(
         startTimestamp,
 
         gpuMemoryUsage,
+        gpuMemoryUsageMax,
 
         worldSize,
         localRank,

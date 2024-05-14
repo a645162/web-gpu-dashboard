@@ -381,7 +381,12 @@ export default defineComponent({
 
                   <el-divider style="padding: 0;margin: 0;"/>
 
-                  GPU显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsage)) }}GiB
+                  <div v-if="item.gpuMemoryUsage">
+                    GPU显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsage)) }}GiB
+                  </div>
+                  <div v-if="item.gpuMemoryUsageMax">
+                    GPU显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsageMax)) }}GiB
+                  </div>
 
                   <div v-if="item.worldSize > 1">
                     GPU使用数量:{{ item.worldSize }}
