@@ -24,7 +24,21 @@ export default defineComponent({
   },
   setup(props) {
 
+    const current_used_memory_mb = computed(() => {
+      if (props.current_gpu_memory_used_percent < 0) {
+        return 0;
+      }
+      if (props.total_gpu_memory_mb > 100) {
+        return props.total_gpu_memory_mb;
+      }
+
+      return props.total_gpu_memory_mb * (
+          props.current_gpu_memory_used_percent / 100
+      );
+    });
+
     const usage_memory_mb = computed(() => {
+
       let usage_memory_mb = 0;
       for (let i = 0; i < props.gpu_task_info_items.length; i++) {
         var current_memory = props.gpu_task_info_items[i].gpuMemoryUsageMax;
@@ -33,25 +47,16 @@ export default defineComponent({
         }
         usage_memory_mb += current_memory;
       }
+
+      if (usage_memory_mb < current_used_memory_mb.value) {
+        usage_memory_mb = current_used_memory_mb.value;
+      }
+
       return usage_memory_mb;
     });
 
-    const current_used_memory_mb = computed(() => {
-      if (props.current_gpu_memory_used_percent < 0) {
-        return 0;
-      }
-
-      return props.total_gpu_memory_mb * (props.current_gpu_memory_used_percent / 100);
-    })
-
     const remain_memory_mb = computed(() => {
-      const remain_memory = props.total_gpu_memory_mb - usage_memory_mb.value;
-
-      if (remain_memory < current_used_memory_mb.value) {
-        return current_used_memory_mb.value;
-      }
-
-      return remain_memory;
+      return props.total_gpu_memory_mb - usage_memory_mb.value;
     });
 
     const remain_memory_human = computed(() => {
