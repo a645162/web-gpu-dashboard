@@ -28,7 +28,7 @@ export default defineComponent({
       if (props.current_gpu_memory_used_percent < 0) {
         return 0;
       }
-      if (props.total_gpu_memory_mb > 100) {
+      if (props.current_gpu_memory_used_percent > 100) {
         return props.total_gpu_memory_mb;
       }
 
