@@ -36,8 +36,8 @@ export default defineComponent({
     });
 
     const remain_memory_human = computed(() => {
-      if (remain_memory_mb.value < 1024) {
-        return remain_memory_mb.value.toFixed(2) + "MB";
+      if (remain_memory_mb.value < 1000) {
+        return remain_memory_mb.value + "MB";
       } else {
         return (remain_memory_mb.value / 1024).toFixed(2) + "GB";
       }
