@@ -48,7 +48,7 @@ export default defineComponent({
       const remain_memory = props.total_gpu_memory_mb - usage_memory_mb.value;
 
       if (remain_memory < current_used_memory_mb.value) {
-        return 0;
+        return current_used_memory_mb.value;
       }
 
       return remain_memory;
