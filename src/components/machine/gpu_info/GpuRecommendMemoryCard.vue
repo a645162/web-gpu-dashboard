@@ -52,16 +52,19 @@ export default defineComponent({
         usage_memory_mb = current_used_memory_mb.value;
       }
 
+      // Convert To Integer
+      usage_memory_mb = Math.floor(usage_memory_mb);
+
       return usage_memory_mb;
     });
 
     const remain_memory_mb = computed(() => {
-      return props.total_gpu_memory_mb - usage_memory_mb.value;
+      return Math.floor(props.total_gpu_memory_mb - usage_memory_mb.value);
     });
 
     const remain_memory_human = computed(() => {
       if (remain_memory_mb.value < 1000) {
-        return remain_memory_mb.value + "MB";
+        return Math.floor(remain_memory_mb.value) + "MB";
       } else {
         return (remain_memory_mb.value / 1024).toFixed(2) + "GB";
       }
