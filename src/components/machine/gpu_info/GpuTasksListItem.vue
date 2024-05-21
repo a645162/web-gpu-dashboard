@@ -354,6 +354,10 @@ export default defineComponent({
               >
                 <template #content>
 
+                  <div>
+                    用户名:{{ item.name }}
+                  </div>
+
                   <div v-show="item.screenSessionName">
                     Screen会话名称:{{ item.screenSessionName }}
                   </div>
@@ -371,6 +375,10 @@ export default defineComponent({
                   </div>
                   <div v-show="item.pythonVersion">
                     Python Version:{{ item.pythonVersion }}
+                  </div>
+
+                  <div>
+                    启动时间:{{ startTimeString(item.startTimestamp) }}
                   </div>
 
                   <el-divider style="padding: 0;margin: 0;"/>
