@@ -123,7 +123,7 @@ export default defineComponent({
     const startTimeString = (startTime: number) => {
       const timeString = getTimeStrFromTimestamp(startTime);
 
-      return `启动时间:${timeString}`;
+      return `${timeString}`;
     };
 
     const testFilterUserNameForTaskItem = (userName: string) => {
@@ -358,6 +358,8 @@ export default defineComponent({
                     用户名:{{ item.name }}
                   </div>
 
+                  <el-divider style="padding: 0;margin: 0;"/>
+
                   <div v-show="item.screenSessionName">
                     Screen会话名称:{{ item.screenSessionName }}
                   </div>
@@ -378,7 +380,7 @@ export default defineComponent({
                   </div>
 
                   <div>
-                    {{ startTimeString(item.startTimestamp) }}
+                    启动时间:{{ startTimeString(item.startTimestamp) }}
                   </div>
 
                   <el-divider style="padding: 0;margin: 0;"/>
@@ -430,7 +432,7 @@ export default defineComponent({
           <!--1天11时11分-->
           <el-tooltip
               placement="bottom"
-              :content="startTimeString(item.startTimestamp)"
+              :content="'启动时间:' + startTimeString(item.startTimestamp)"
           >
             <RuntimeComponent :start-time="item.startTimestamp"/>
           </el-tooltip>
