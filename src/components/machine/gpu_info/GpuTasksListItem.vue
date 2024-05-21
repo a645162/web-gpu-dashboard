@@ -394,6 +394,13 @@ export default defineComponent({
                     多卡任务索引:{{ item.localRank }}
                   </div>
 
+                  <div v-if="item.cudaRoot">
+                    CUDA Root:{{ item.cudaRoot }}
+                  </div>
+                  <div v-if="item.cudaVersion">
+                    CUDA Version:{{ item.cudaVersion }}
+                  </div>
+
                   <el-divider style="padding: 0;margin: 0;"/>
 
                   <div v-show="item.command">
