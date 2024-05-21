@@ -378,7 +378,7 @@ export default defineComponent({
                   </div>
 
                   <div>
-                    启动时间:{{ startTimeString(item.startTimestamp) }}
+                    {{ startTimeString(item.startTimestamp) }}
                   </div>
 
                   <el-divider style="padding: 0;margin: 0;"/>
