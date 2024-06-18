@@ -72,7 +72,7 @@ import axios from 'axios';
 import GpuUsageCard from "./GpuUsageCard.vue";
 import {GpuTaskInfoItemType, updateAllTaskInfo} from "../../../ts/api/GpuTaskInfoItemType.ts";
 import {GPUUsage} from "../../../ts/api/TypeGpuUsage.ts";
-import GpuTasksList from "./GpuTasksList.vue";
+import GpuTasksList from "./task/GpuTasksList.vue";
 import {useStoreSettings} from "../../../stores/storeSettings.ts";
 import GpuRecommendMemoryCard from "./GpuRecommendMemoryCard.vue";
 

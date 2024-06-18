@@ -2,13 +2,13 @@
 
 import {computed, defineComponent, inject, PropType, Ref} from "vue";
 
-import {convertFromMBToGB, getMemoryString} from "../../../ts/type/MemorySize.ts";
+import {convertFromMBToGB, getMemoryString} from "../../../../ts/type/MemorySize.ts";
 import RuntimeComponent from "./RuntimeComponent.vue";
 import {ElCard, ElMessage, ElMessageBox, ElNotification} from "element-plus";
-import {GpuTaskInfoItemType} from "../../../ts/api/GpuTaskInfoItemType.ts";
-import {getTimeStrFromTimestamp} from "../../../ts/type/DateTimeUtils.ts";
-import {useStoreSettings} from "../../../stores/storeSettings.ts";
-import {copyToClipboardOld} from "../../../ts/utils/Clipboard.ts";
+import {GpuTaskInfoItemType} from "../../../../ts/api/GpuTaskInfoItemType.ts";
+import {getTimeStrFromTimestamp} from "../../../../ts/type/DateTimeUtils.ts";
+import {useStoreSettings} from "../../../../stores/storeSettings.ts";
+import {copyToClipboardOld} from "../../../../ts/utils/Clipboard.ts";
 
 export default defineComponent({
   name: 'GpuTasksListItem',
@@ -366,6 +366,10 @@ export default defineComponent({
 
                   <div v-show="item.projectName">
                     项目名称:{{ item.projectName }}
+                  </div>
+
+                  <div v-show="item.projectDirectory">
+                    项目目录:{{ item.projectDirectory }}
                   </div>
 
                   <div v-show="item.pyFileName">

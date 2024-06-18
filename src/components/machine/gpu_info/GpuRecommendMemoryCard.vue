@@ -2,7 +2,7 @@
 
 import {computed, defineComponent, PropType} from 'vue';
 import {GpuTaskInfoItemType} from '../../../ts/api/GpuTaskInfoItemType.ts';
-import GpuTasksListItem from "./GpuTasksListItem.vue";
+import GpuTasksListItem from "./task/GpuTasksListItem.vue";
 
 export default defineComponent({
   name: 'GpuRecommendMemoryCard',

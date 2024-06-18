@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 
 import {computed, onMounted, onUnmounted, ref} from 'vue';
-import {padTime} from '../../../ts/type/DateTimeUtils.ts';
+import {padTime} from '../../../../ts/type/DateTimeUtils.ts';
 
 const props = defineProps({
   startTime: {

@@ -5,6 +5,7 @@ export interface GpuTaskInfoItemType {
 
     debugMode: boolean;
 
+    projectDirectory: string;
     projectName: string;
     pyFileName: string;
 
@@ -36,6 +37,7 @@ export function createGpuTaskInfoItem(
     id: number,
     name: string,
     debugMode: boolean,
+    projectDirectory: string,
     projectName: string,
     pyFileName: string,
     runTime: string,
@@ -59,6 +61,7 @@ export function createGpuTaskInfoItem(
 
         debugMode,
 
+        projectDirectory,
         projectName,
         pyFileName,
 

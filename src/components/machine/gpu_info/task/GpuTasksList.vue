@@ -22,7 +22,7 @@
 <script lang="ts">
 
 import {computed, defineComponent, PropType} from 'vue';
-import {GpuTaskInfoItemType} from '../../../ts/api/GpuTaskInfoItemType.ts';
+import {GpuTaskInfoItemType} from '../../../../ts/api/GpuTaskInfoItemType.ts';
 import GpuTasksListItem from "./GpuTasksListItem.vue";
 
 export default defineComponent({
