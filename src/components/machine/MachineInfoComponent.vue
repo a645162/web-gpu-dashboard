@@ -159,7 +159,7 @@ export default defineComponent({
 
     const fetchGPUCount = async () => {
       try {
-        const response = await axios.get(`${props.machineUrl}/get_gpu_count`);
+        const response = await axios.get(`${props.machineUrl}/gpu_count`);
         // 接口返回的数据格式为 { result: number }
         const responseGpuCount = response.data.result;
 
@@ -208,7 +208,7 @@ export default defineComponent({
 
     const fetchSystemInfo = async () => {
       try {
-        const response = await axios.get(`${props.machineUrl}/get_system_info`);
+        const response = await axios.get(`${props.machineUrl}/system_info`);
         machineSystemInfo.value = response.data;
       } catch (e) {
       }

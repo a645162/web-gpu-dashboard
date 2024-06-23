@@ -110,7 +110,7 @@ export default defineComponent({
       try {
         const response =
             await axios.get(
-                `${props.url}/get_gpu_usage?gpu_index=${props.gpuIndex}`
+                `${props.url}/gpu_usage_info?gpu_index=${props.gpuIndex}`
             );
         gpuUsageData.value = response.data as GPUUsage;
         // console.log(gpuUsageData.value);
@@ -127,7 +127,7 @@ export default defineComponent({
       try {
         const response =
             await axios.get(
-                `${props.url}/get_gpu_task?gpu_index=${props.gpuIndex}`
+                `${props.url}/gpu_task_info?gpu_index=${props.gpuIndex}`
             );
 
         // 预处理获取到的信息
