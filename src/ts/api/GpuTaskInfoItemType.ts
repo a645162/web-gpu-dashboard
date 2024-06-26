@@ -30,6 +30,7 @@ export interface GpuTaskInfoItemType {
 
     cudaRoot: string;
     cudaVersion: string;
+    cudaVisibleDevices: string;
 }
 
 // 创建GpuTaskInfoItemType的实例
@@ -53,7 +54,8 @@ export function createGpuTaskInfoItem(
     command: string,
     taskMainMemoryMB: number,
     cudaRoot: string,
-    cudaVersion: string
+    cudaVersion: string,
+    cudaVisibleDevices: string
 ): GpuTaskInfoItemType {
     return {
         id,
@@ -86,6 +88,7 @@ export function createGpuTaskInfoItem(
 
         cudaRoot,
         cudaVersion,
+        cudaVisibleDevices,
     };
 }
 

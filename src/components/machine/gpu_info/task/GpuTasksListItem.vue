@@ -396,7 +396,7 @@ export default defineComponent({
                   <el-divider style="padding: 0;margin: 0;"/>
 
                   <div v-if="item.gpuMemoryUsage">
-                    GPU显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsage)) }}GiB
+                    当前显存使用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsage)) }}GiB
                   </div>
                   <div v-if="item.gpuMemoryUsageMax">
                     最大显存占用:{{ getMemoryString(convertFromMBToGB(item.gpuMemoryUsageMax)) }}GiB
@@ -413,6 +413,9 @@ export default defineComponent({
                   </div>
                   <div v-if="item.cudaVersion">
                     CUDA Version:{{ item.cudaVersion }}
+                  </div>
+                  <div v-if="item.cudaVisibleDevices">
+                    CUDA Visible Devices:{{ item.cudaVisibleDevices }}
                   </div>
 
                   <el-divider style="padding: 0;margin: 0;"/>
