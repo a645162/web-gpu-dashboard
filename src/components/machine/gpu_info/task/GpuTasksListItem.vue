@@ -405,7 +405,7 @@ export default defineComponent({
                   <div v-if="item.worldSize > 1">
                     GPU使用数量:{{ item.worldSize }}
                     <br/>
-                    多卡任务索引:{{ item.localRank }}
+                    多卡任务索引:{{ item.localRank }} ({{ item.localRank + 1 }} / {{ item.worldSize }})
                   </div>
 
                   <div v-if="item.cudaRoot">
