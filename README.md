@@ -6,6 +6,8 @@
 
 Author: [Haomin Kong](http://github.com/a645162)
 
+![Example1.png](./Doc/docs/image/Example1.png)
+
 ## 使用方法
 
 1. 配置环境
