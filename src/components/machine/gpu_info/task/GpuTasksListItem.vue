@@ -408,6 +408,9 @@ export default defineComponent({
                     多卡任务索引:{{ item.localRank }} ({{ item.localRank + 1 }} / {{ item.worldSize }})
                   </div>
 
+                  <div v-if="item.driverVersion">
+                    Driver Version:{{ item.driverVersion }}
+                  </div>
                   <div v-if="item.cudaRoot">
                     CUDA Root:{{ item.cudaRoot }}
                   </div>
