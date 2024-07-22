@@ -11,15 +11,15 @@
   "dependencies": {
     "@imengyu/vue3-context-menu": "^1.4.1",
     "axios": "^1.7.2",
-    "element-plus": "^2.7.6",
+    "element-plus": "^2.7.7",
     "pinia": "^2.1.7",
-    "vue": "^3.4.31"
+    "vue": "^3.4.33"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "typescript": "^5.5.3",
-    "vite": "^5.3.3",
-    "vite-plugin-vue-devtools": "^7.3.5",
-    "vue-tsc": "^2.0.26"
+    "vite": "^5.3.4",
+    "vite-plugin-vue-devtools": "^7.3.6",
+    "vue-tsc": "^2.0.28"
   }
 }
