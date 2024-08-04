@@ -9,17 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@imengyu/vue3-context-menu": "^1.4.1",
-    "axios": "^1.7.2",
-    "element-plus": "^2.7.7",
-    "pinia": "^2.1.7",
-    "vue": "^3.4.33"
+    "@imengyu/vue3-context-menu": "^1.4.2",
+    "axios": "^1.7.3",
+    "element-plus": "^2.7.8",
+    "pinia": "^2.2.0",
+    "vue": "^3.4.35"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.4",
-    "vite-plugin-vue-devtools": "^7.3.6",
-    "vue-tsc": "^2.0.28"
+    "@vitejs/plugin-vue": "^5.1.2",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vite-plugin-vue-devtools": "^7.3.7",
+    "vue-tsc": "^2.0.29"
   }
 }
