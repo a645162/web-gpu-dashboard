@@ -15,4 +15,5 @@ else
     cp src/assets/machineListTemplate.json src/assets/machineListTest.json
 fi
 
-npm run build
+bun install
+bun run build
